@@ -29,5 +29,8 @@ cursor_blink  = true
 # exif-image
 [plugin]
 prepend_previewers = [
+  # iPhone 的 HEIC/HEIF：先用 sips 转 JPEG 再显示（plugins/heic.yazi）
+  { url = "*.heic", run = "heic" },
+  { url = "*.heif", run = "heic" },
   { mime = "image/*", run = "exif-image" }
 ]
