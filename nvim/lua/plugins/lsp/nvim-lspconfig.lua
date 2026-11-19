@@ -36,8 +36,28 @@ local python_analysis = {
   },
 }
 
+-- 补全引擎的 LSP 能力：blink.cmp 需要 server 在补全项里下发 detail / data，
+-- 否则懒加载详情、自动导入信息这类需要 resolve 的内容拿不到。
+-- Neovim 会把它和 make_client_capabilities() 深合并（client.lua 的 tbl_deep_extend），
+-- 所以这里只给 blink 的增量片段；LazyVim 默认的 workspace.fileOperations 由 opts 合并保留。
+-- pcall 兜底：插件还没装好（新机器首次启动 / 同步配置到 Debian 的第一天）时
+-- 退回 Neovim 默认能力，不因为一个 require 失败把整个 LSP 配置带崩。
+local blink_capabilities
+do
+  -- 整段包 pcall（而不是只包 require）：blink 跟的是 version="*"，升级改了 API 名时
+  -- 调用会抛错，而这段代码在 lazy 收集 spec 的顶层执行，未捕获的错误会直接让 nvim 起不来。
+  -- 拿不到就退回 Neovim 默认能力（只少 detail/data，补全照常工作）。
+  local ok, caps = pcall(function()
+    return require("blink.cmp").get_lsp_capabilities()
+  end)
+  if ok then
+    blink_capabilities = caps
+  end
+end
+
 local servers = {
   ["*"] = {
+    capabilities = blink_capabilities,
     keys = {
       -- 禁用 LazyVim 默认的 K = hover（K 已在 config/keymaps.lua 里全局改成「向上滚动 10 行」）
       { "K", false },

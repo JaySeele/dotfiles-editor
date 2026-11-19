@@ -1,9 +1,20 @@
+-- 补全引擎：blink.cmp
+--
+-- 它本身不需要在这里「安装」——LazyVim v16 的默认 extra 机制发现 spec 里声明了
+-- saghen/blink.cmp，就会把 lua/lazyvim/plugins/extras/coding/blink.lua 作为默认补全
+-- extra 自动挂上（`LazyVim.config.get_default("cmp")` 返回 origin = "default"）。
+-- 判定依据是 checks.cmp 里「装了哪个补全引擎」，16.0.2 里 vim.g.lazyvim_cmp 已无人读取。
+-- sources 的 lsp/snippets/path/buffer 默认值、lazydev 源、friendly-snippets 依赖都来自那里。
+--
+-- ⚠️ 不要再写自定义 config = function(_, opts) require("blink.cmp").setup(opts) end：
+-- 那会整个顶掉 extra 的 config 函数，而后者负责
+--   1) 把 sources.compat 置 nil —— 否则每次启动弹
+--      "blink.cmp sources → compat Unexpected field in configuration!"
+--   2) 把 snippets.expand 换成 LazyVim.cmp.expand —— 带 snippet 容错兜底
+-- 只在这里覆盖 opts 字段即可，setup 交给 extra。
 return {
   {
     "saghen/blink.cmp",
-    config = function(_, opts)
-      require("blink.cmp").setup(opts)
-    end,
     opts = {
       keymap = {
         preset = "enter",
