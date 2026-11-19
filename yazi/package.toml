@@ -29,11 +29,6 @@ rev = "e73fd74"
 hash = "6ea5f37c7f219671ec504cb8311f889d"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:git"
-rev = "38efe09"
-hash = "88e56a64b7ce7c4314427452343fef17"
-
-[[plugin.deps]]
 use = "yozlog/exif-image"
 rev = "65a0fdb"
 hash = "f2736dd4299eac7ed01a8ed5dedaf020"
@@ -42,6 +37,11 @@ hash = "f2736dd4299eac7ed01a8ed5dedaf020"
 use = "KKV9/compress"
 rev = "80e5268"
 hash = "868db729374b97871bc30b96d0e9061f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "1ef5fe0"
+hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"
