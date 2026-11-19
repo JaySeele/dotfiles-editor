@@ -9,8 +9,12 @@ local keymap = vim.keymap
 -- 连续摁`jk`退出插入模式
 -- keymap.set("i", "jk", "<ESC>")
 keymap.set("i", "jk", "<Esc>")
--- 终端模式同样用 jk 退出
-keymap.set("t", "jk", "<C-\\><C-n>")
+-- 终端模式「不要」再映射 jk：终端里的映射会让每个 j 都先等 timeoutlen(1000ms)，
+-- 看后面是不是跟着 k。结果在 yazi / lazygit 里按 j（向下选择）会整整卡 1 秒才动
+-- （实测：有 jk 映射 1019ms，去掉后 4ms）。退出终端模式用 nvim 内置的 <C-\\><C-n>
+-- （yazi.nvim 的浮窗里这个键被插件自己占了，用它的关闭键即可）。
+-- 真想要 jk：加回来可以，但要接受 TUI 里 j 的 1 秒延迟（或者把 timeoutlen 调小）。
+-- keymap.set("t", "jk", "<C-\\><C-n>")
 
 -- Cmd+V 粘贴（系统剪贴板）
 keymap.set("i", "<D-v>", '<C-o>"+p', { desc = "粘贴" })

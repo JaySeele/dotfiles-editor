@@ -525,7 +525,9 @@ return {
         Snacks.words.jump(vim.v.count1)
       end,
       desc = "下一个引用",
-      mode = { "n", "t" },
+      -- 不要再带 "t"：终端模式里有映射，按 ] 就得先等 timeoutlen 看是不是 ]] 前缀，
+      -- 在 yazi / lazygit 这类 TUI 里会变成「按一下卡一下」（同 t 模式的 jk，见 config/keymaps.lua）
+      mode = "n",
     },
     {
       "[[",
@@ -533,7 +535,7 @@ return {
         Snacks.words.jump(-vim.v.count1)
       end,
       desc = "上一个引用",
-      mode = { "n", "t" },
+      mode = "n",
     },
     {
       "<leader>N",
