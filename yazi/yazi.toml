@@ -34,3 +34,15 @@ prepend_previewers = [
   { url = "*.heif", run = "heic" },
   { mime = "image/*", run = "exif-image" }
 ]
+
+# git 状态（plugins/git.yazi，配合 cfg-git.lua 的 setup）
+# 文件列表右侧显示 M/A/? 等标记；yazi > 26.1.22 不需要 id 字段
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"
