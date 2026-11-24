@@ -1,9 +1,36 @@
+-- Markdown 渲染、表格编辑和图片显示。
 return {
   {
+    "3rd/image.nvim",
+    event = "VeryLazy",
+    -- image.nvim 自带 rockspec；使用 magick_cli，不触发 hererocks 构建。
+    build = false,
+    opts = {
+      backend = "kitty",
+      processor = "magick_cli",
+      integrations = {
+        markdown = {
+          enabled = true,
+          clear_in_insert_mode = false,
+          only_render_image_at_cursor = false,
+          filetypes = { "markdown", "quarto" },
+        },
+      },
+      max_height_window_percentage = 50,
+      window_overlap_clear_enabled = true,
+    },
+  },
+
+  {
+    "Kicamon/markdown-table-mode.nvim",
+    config = function()
+      require("markdown-table-mode").setup()
+    end,
+  },
+
+  {
     "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     ft = { "markdown", "quarto" },
@@ -12,9 +39,7 @@ return {
       render_modes = true,
       lsp = { enabled = true },
       coq = { enabled = true },
-      -- heading 直列
       heading = { position = "inline" },
-      -- 段落 默认
       paragraph = {
         enabled = true,
         render_modes = false,
@@ -22,11 +47,7 @@ return {
         indent = 0,
         min_width = 0,
       },
-      -- 代码块 没有迹象
-      code = {
-        sign = false,
-      },
-      -- 虚线
+      code = { sign = false },
       dash = {
         enabled = true,
         render_modes = false,
@@ -36,7 +57,6 @@ return {
         priority = nil,
         highlight = "RenderMarkdownDash",
       },
-      -- 列表 默认
       bullet = {
         enabled = true,
         render_modes = false,
@@ -52,13 +72,11 @@ return {
         scope_highlight = {},
         scope_priority = nil,
       },
-      -- 任务框 图标
       checkbox = {
         unchecked = { icon = "✘ " },
         checked = { icon = "✔ " },
         custom = { todo = { rendered = "◯ " } },
       },
-      -- 引用 默认
       quote = {
         enabled = true,
         render_modes = false,
@@ -73,9 +91,6 @@ return {
           "RenderMarkdownQuote6",
         },
       },
-      -- 表格 双倍
-      -- pipe_table = { preset = "double" },
-      -- callouts 默认
       callout = {
         note = { raw = "[!NOTE]", rendered = "󰋽 Note", highlight = "RenderMarkdownInfo", category = "github" },
         tip = { raw = "[!TIP]", rendered = "󰌶 Tip", highlight = "RenderMarkdownSuccess", category = "github" },
@@ -170,7 +185,6 @@ return {
         quote = { raw = "[!QUOTE]", rendered = "󱆨 Quote", highlight = "RenderMarkdownQuote", category = "obsidian" },
         cite = { raw = "[!CITE]", rendered = "󱆨 Cite", highlight = "RenderMarkdownQuote", category = "obsidian" },
       },
-      -- 链接 默认
       link = {
         enabled = true,
         render_modes = false,
@@ -222,13 +236,7 @@ return {
           youtube_short = { icon = "󰗃 ", pattern = "youtu%.be", kind = "url" },
         },
       },
-      -- 标志 默认
-      sign = {
-        enabled = true,
-        priority = nil,
-        highlight = "RenderMarkdownSign",
-      },
-      -- 缩进 默认
+      sign = { enabled = true, priority = nil, highlight = "RenderMarkdownSign" },
       indent = {
         enabled = false,
         render_modes = false,

@@ -1,29 +1,5 @@
--- Autocmds are automatically loaded on the VeryLazy event
--- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
---
--- Add any additional autocmds here
--- with `vim.api.nvim_create_autocmd`
---
--- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
-
--- 保存文件时自动格式化：只调用「已附加且支持格式化」的 LSP。
--- 没有 LSP 的文件（txt / conf / 没装服务器的语言）直接静默跳过，
--- 不会弹出 "no active clients" / "LSP 不存在" 之类的提示。
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    if not vim.api.nvim_buf_is_valid(args.buf) or vim.bo[args.buf].buftype ~= "" then
-      return
-    end
-    local clients = vim.lsp.get_clients({ bufnr = args.buf, method = "textDocument/formatting" })
-    if #clients == 0 then
-      return
-    end
-    pcall(vim.lsp.buf.format, { bufnr = args.buf, async = false })
-  end,
-  desc = "保存文件前自动格式化代码（无 LSP 时静默跳过）",
-})
+-- 保存格式化统一由 LazyVim.format 管理：Conform 有对应 formatter 时优先用它，
+-- 没有 formatter 时由 LazyVim 的 LSP provider 回退，避免这里再叠加第二个 BufWritePre。
 
 -- Python 文件关闭 inlay hints（隐藏 -> None 等返回类型提示）
 -- 注意：LspAttach 的 pattern 匹配的是「缓冲区文件名」而不是文件类型，
