@@ -16,7 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- 提前安装 LspAttach hook；全局自定义映射则等 LazyVim 的 VeryLazy 默认键位注册完成后再应用。
 local keymaps = require("config.keymaps")
-keymaps.install_early()
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   once = true,
