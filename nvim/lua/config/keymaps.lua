@@ -42,11 +42,16 @@ function M.setup()
     vim.fn.setreg("+", path)
     vim.notify("cp: " .. path)
   end, "拷贝文件路径")
+
   map("n", "<leader>yp", function()
     local dir = vim.fn.expand("%:p:h")
     vim.fn.setreg("+", dir)
     vim.notify("cp: " .. dir)
   end, "拷贝当前路径")
 end
+
+-- ---------- 删掉用不到的默认键位 ----------
+-- 清单和删除逻辑都在 lua/config/drop_keymaps.lua（想恢复就注释掉下面这行）
+require("config.drop_keymaps").apply()
 
 return M
