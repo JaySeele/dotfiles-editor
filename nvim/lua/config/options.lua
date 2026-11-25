@@ -116,4 +116,3 @@ opt.suffixesadd:append({
   ".zsh",
 })
 opt.path:append("**")
-vim.opt.includeexpr = "v:lua.require'tools.gf'.includeexpr()"
