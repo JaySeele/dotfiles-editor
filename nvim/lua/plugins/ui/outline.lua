@@ -27,7 +27,7 @@ return {
             vim.notify("No LSP with document symbols available", vim.log.levels.WARN, { title = "Outline" })
           end, 1000)
         end,
-        desc = "切换大纲",
+        desc = "显示/关闭 Outline",
       },
     },
     opts = {},

@@ -28,6 +28,7 @@ M.keys = {
     -- ── 单键 / 符号 ──────────────────────────────────────────────
     ",", -- 缓冲区列表
     -- "-", -- 在当前文件中打开 yazi（保留：yazi.lua 自己定义的键，不能删）
+    "|", -- 垂直分屏
     ".", -- 切换临时缓冲区（scratch buffer）
     "/", -- 切换终端
     ":", -- 命令历史
@@ -57,7 +58,7 @@ M.keys = {
     "ca", -- 代码操作（修复 / 重构）
     "cA", -- 一键执行 Source 类操作（整理 import 等）
     "cd", -- 当前行的诊断详情
-    "cf", -- 格式化当前文件
+    -- "cf", -- 格式化当前文件
     "cF", -- 格式化注入语言(如 md 里的代码块)
     "cl", -- Lsp Info
     "cR", -- 重命名当前文件（buf-local）
@@ -84,8 +85,8 @@ M.keys = {
     "gb", -- 当前行的 git blame
     "gd", -- Git 差异（文件 / hunk）
     "gD", -- 与 origin 的差异
-    "gf", -- 当前文件的 git 历史
-    "gg", -- Lazygit
+    -- "gf", -- Pathfinder 接管 gf / <leader>gf，不再由 drop 删除
+    -- "gg", -- Lazygit（已恢复使用，见 snacks.lua；留在清单会被启动时删掉）
     "gG", -- Lazygit（cwd）
     "gl", -- Git Log
     "gL", -- Git Log（cwd）
@@ -102,7 +103,7 @@ M.keys = {
     "sC", -- 命令列表
     "sd", -- 诊断信息
     "sD", -- 当前缓冲区的诊断
-    "sG", -- 全局搜索 grep（cwd）
+    -- "sG", -- 全局搜索 grep（cwd）
     "sh", -- 帮助页面
     "sH", -- 高亮组列表
     "si", -- 图标列表

@@ -2,7 +2,7 @@
 return {
   {
     "folke/lazy.nvim",
-    keys = { { "<leader>L", "<cmd>Lazy<cr>", desc = "插件管理（Lazy）" } },
+    -- keys = { { "<leader>L", "<cmd>Lazy<cr>", desc = "插件管理（Lazy）" } },
     init = function()
       vim.api.nvim_create_autocmd("User", {
         pattern = "VeryLazy",

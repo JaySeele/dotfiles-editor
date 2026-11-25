@@ -31,23 +31,23 @@ function M.setup()
   map("n", "K", "10k", "向上移动10行")
 
   -- 基础窗口 / buffer
-  map("n", "<leader>sv", "<C-w>v", "垂直分屏（左右）")
+  map("n", "<leader>wv", "<C-w>v", "垂直分屏（左右）")
   map("n", "<leader>wd", "<C-w>c", "关闭当前窗口 / 分屏")
   map("n", "<D>h", "<C-w>h", "焦点移到左侧文件树")
   map("n", "<D>l", "<C-w>l", "焦点移到右侧Outline")
 
   -- 路径复制
-  map("n", "<leader>yf", function()
-    local path = vim.fn.expand("%:p")
-    vim.fn.setreg("+", path)
-    vim.notify("cp: " .. path)
-  end, "拷贝文件路径")
-
-  map("n", "<leader>yp", function()
-    local dir = vim.fn.expand("%:p:h")
-    vim.fn.setreg("+", dir)
-    vim.notify("cp: " .. dir)
-  end, "拷贝当前路径")
+  -- map("n", "<leader>yf", function()
+  --   local path = vim.fn.expand("%:p")
+  --   vim.fn.setreg("+", path)
+  --   vim.notify("cp: " .. path)
+  -- end, "拷贝文件路径")
+  --
+  -- map("n", "<leader>yp", function()
+  --   local dir = vim.fn.expand("%:p:h")
+  --   vim.fn.setreg("+", dir)
+  --   vim.notify("cp: " .. dir)
+  -- end, "拷贝当前路径")
 end
 
 -- ---------- 删掉用不到的默认键位 ----------

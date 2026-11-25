@@ -12,36 +12,6 @@ return {
     "neovim/nvim-lspconfig",
     init = function()
       vim.lsp.handlers["$/progress"] = function() end
-      local function has_rename()
-        return #vim.lsp.get_clients({ bufnr = 0, method = "textDocument/rename" }) > 0
-      end
-      local function replace_word(word)
-        word = vim.trim(word or "")
-        if word == "" then
-          vim.notify("grn: 光标下没有可取的内容", vim.log.levels.WARN)
-          return
-        end
-        require("grug-far").open({
-          transient = true,
-          prefills = { search = word, paths = vim.fn.expand("%") },
-        })
-      end
-      vim.keymap.set("n", "grn", function()
-        if has_rename() then
-          return vim.lsp.buf.rename()
-        end
-        replace_word(vim.fn.expand("<cword>"))
-      end, { desc = "重命名（无 LSP 时退回当前文件替换）" })
-      vim.keymap.set("x", "grn", function()
-        if has_rename() then
-          return vim.lsp.buf.rename()
-        end
-        local saved = vim.fn.getreg("v")
-        vim.cmd('noau normal! "vy')
-        local text = vim.fn.getreg("v")
-        vim.fn.setreg("v", saved)
-        replace_word(text)
-      end, { desc = "重命名（无 LSP 时退回当前文件替换）" })
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspBaseKeymaps", { clear = true }),
         callback = function(args)
@@ -64,8 +34,8 @@ return {
           keys = {
             { "K", false },
             { "gr", false },
-            { "<leader>cc", false, mode = { "n", "x" } },
-            { "<leader>cC", false },
+            -- { "<leader>cc", false, mode = { "n", "x" } },
+            -- { "<leader>cC", false },
           },
         },
       },
