@@ -15,6 +15,14 @@ local snacks_keys = {
     -- desc = "缓冲区列表",
   },
   {
+    "<leader>`",
+    false,
+    -- function()
+    --   Snacks.picker.buffers()
+    -- end,
+    -- desc = "switch to other buffer",
+  },
+  {
     "<leader>/",
     false,
     -- function()
@@ -45,6 +53,22 @@ local snacks_keys = {
       Snacks.explorer({ cwd = cwd ~= "" and cwd or nil })
     end,
     desc = "文件资源管理器",
+  },
+  {
+    "<leader>E",
+    false,
+    -- function()
+    --   Snacks.notifier.show_history()
+    -- end,
+    -- desc = "Explorer Snacks(cwd)",
+  },
+  {
+    "<leader>K",
+    false,
+    -- function()
+    --   Snacks.notifier.show_history()
+    -- end,
+    -- desc = "Keywordprg",
   },
   {
     "<leader>fb",
