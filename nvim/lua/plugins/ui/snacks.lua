@@ -8,31 +8,35 @@ local snacks_keys = {
   },
   {
     "<leader>,",
-    function()
-      Snacks.picker.buffers()
-    end,
-    desc = "缓冲区列表",
+    false,
+    -- function()
+    --   Snacks.picker.buffers()
+    -- end,
+    -- desc = "缓冲区列表",
   },
   {
     "<leader>/",
-    function()
-      Snacks.picker.grep()
-    end,
-    desc = "全局搜索",
+    false,
+    -- function()
+    --   Snacks.picker.grep()
+    -- end,
+    -- desc = "全局搜索",
   },
   {
     "<leader>:",
-    function()
-      Snacks.picker.command_history()
-    end,
-    desc = "命令历史",
+    false,
+    -- function()
+    --   Snacks.picker.command_history()
+    -- end,
+    -- desc = "命令历史",
   },
   {
     "<leader>n",
-    function()
-      Snacks.notifier.show_history()
-    end,
-    desc = "通知历史",
+    false,
+    -- function()
+    --   Snacks.notifier.show_history()
+    -- end,
+    -- desc = "通知历史",
   },
   {
     "<leader>e",
@@ -44,55 +48,63 @@ local snacks_keys = {
   },
   {
     "<leader>fb",
-    function()
-      Snacks.picker.buffers()
-    end,
-    desc = "缓冲区列表",
+    false,
+    -- function()
+    --   Snacks.picker.buffers()
+    -- end,
+    -- desc = "缓冲区列表",
   },
   {
     "<leader>fc",
-    function()
-      Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
-    end,
-    desc = "查找配置文件",
+    false,
+    -- function()
+    --   Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+    -- end,
+    -- desc = "查找配置文件",
   },
   {
     "<leader>ff",
-    function()
-      Snacks.picker.files()
-    end,
-    desc = "查找文件",
+    false,
+    -- function()
+    --   Snacks.picker.files()
+    -- end,
+    -- desc = "查找文件",
   },
   {
     "<leader>fg",
-    function()
-      Snacks.picker.git_files()
-    end,
-    desc = "查找Git文件",
+    false,
+    -- function()
+    --   Snacks.picker.git_files()
+    -- end,
+    -- desc = "查找Git文件",
   },
   {
     "<leader>fp",
-    function()
-      Snacks.picker.projects()
-    end,
-    desc = "项目列表",
+    false,
+    -- function()
+    --   Snacks.picker.projects()
+    -- end,
+    -- desc = "项目列表",
   },
   {
     "<leader>fr",
-    function()
-      Snacks.picker.recent()
-    end,
-    desc = "最近文件",
+    false,
+    -- function()
+    --   Snacks.picker.recent()
+    -- end,
+    -- desc = "最近文件",
   },
   {
     "<leader>gb",
-    function()
-      Snacks.picker.git_branches()
-    end,
-    desc = "Git分支",
+    false,
+    -- function()
+    --   Snacks.picker.git_branches()
+    -- end,
+    -- desc = "Git分支",
   },
   {
     "<leader>gl",
+    false,
     function()
       Snacks.picker.git_log()
     end,
@@ -100,10 +112,11 @@ local snacks_keys = {
   },
   {
     "<leader>gL",
-    function()
-      Snacks.picker.git_log_line()
-    end,
-    desc = "Git日志行",
+    false,
+    -- function()
+    --   Snacks.picker.git_log_line()
+    -- end,
+    -- desc = "Git日志行",
   },
   {
     "<leader>gs",
@@ -114,38 +127,43 @@ local snacks_keys = {
   },
   {
     "<leader>gS",
-    function()
-      Snacks.picker.git_stash()
-    end,
-    desc = "Git暂存",
+    false,
+    -- function()
+    --   Snacks.picker.git_stash()
+    -- end,
+    -- desc = "Git暂存",
   },
   {
     "<leader>gd",
-    function()
-      Snacks.picker.git_diff()
-    end,
-    desc = "Git差异",
+    false,
+    -- function()
+    --   Snacks.picker.git_diff()
+    -- end,
+    -- desc = "Git差异",
   },
   {
     "<leader>gf",
-    function()
-      Snacks.picker.git_log_file()
-    end,
-    desc = "Git文件日志",
+    false,
+    -- function()
+    --   Snacks.picker.git_log_file()
+    -- end,
+    -- desc = "Git文件日志",
   },
   {
     "<leader>sb",
-    function()
-      Snacks.picker.lines()
-    end,
-    desc = "缓冲区行",
+    false,
+    -- function()
+    --   Snacks.picker.lines()
+    -- end,
+    -- desc = "缓冲区行",
   },
   {
     "<leader>sB",
-    function()
-      Snacks.picker.grep_buffers()
-    end,
-    desc = "搜索打开的缓冲区",
+    false,
+    -- function()
+    --   Snacks.picker.grep_buffers()
+    -- end,
+    -- desc = "搜索打开的缓冲区",
   },
   {
     "<leader>sg",
@@ -164,80 +182,91 @@ local snacks_keys = {
   },
   {
     '<leader>s"',
-    function()
-      Snacks.picker.registers()
-    end,
-    desc = "寄存器",
+    false,
+    -- function()
+    --   Snacks.picker.registers()
+    -- end,
+    -- desc = "寄存器",
   },
   {
     "<leader>s/",
-    function()
-      Snacks.picker.search_history()
-    end,
-    desc = "搜索历史",
+    false,
+    -- function()
+    --   Snacks.picker.search_history()
+    -- end,
+    -- desc = "搜索历史",
   },
   {
     "<leader>sa",
-    function()
-      Snacks.picker.autocmds()
-    end,
-    desc = "自动命令",
+    false,
+    -- function()
+    --   Snacks.picker.autocmds()
+    -- end,
+    -- desc = "自动命令",
   },
   {
     "<leader>sc",
-    function()
-      Snacks.picker.command_history()
-    end,
-    desc = "命令历史",
+    false,
+    -- function()
+    --   Snacks.picker.command_history()
+    -- end,
+    -- desc = "命令历史",
   },
   {
     "<leader>sC",
-    function()
-      Snacks.picker.commands()
-    end,
-    desc = "命令列表",
+    false,
+    -- function()
+    --   Snacks.picker.commands()
+    -- end,
+    -- desc = "命令列表",
   },
   {
     "<leader>sd",
-    function()
-      Snacks.picker.diagnostics()
-    end,
-    desc = "诊断信息",
+    false,
+    -- function()
+    --   Snacks.picker.diagnostics()
+    -- end,
+    -- desc = "诊断信息",
   },
   {
     "<leader>sD",
-    function()
-      Snacks.picker.diagnostics_buffer()
-    end,
-    desc = "缓冲区诊断",
+    false,
+    -- function()
+    --   Snacks.picker.diagnostics_buffer()
+    -- end,
+    -- desc = "缓冲区诊断",
   },
   {
     "<leader>sh",
-    function()
-      Snacks.picker.help()
-    end,
-    desc = "帮助页面",
+    false,
+    -- function()
+    --   Snacks.picker.help()
+    -- end,
+    -- desc = "帮助页面",
   },
   {
     "<leader>sH",
-    function()
-      Snacks.picker.highlights()
-    end,
-    desc = "高亮组",
+    false,
+    -- function()
+    --   Snacks.picker.highlights()
+    -- end,
+    -- desc = "高亮组",
   },
   {
     "<leader>si",
-    function()
-      Snacks.picker.icons()
-    end,
-    desc = "图标",
+    false,
+    -- function()
+    --   Snacks.picker.icons()
+    -- end,
+    -- desc = "图标",
   },
   {
     "<leader>sj",
-    function()
-      Snacks.picker.jumps()
-    end,
-    desc = "跳转列表",
+    false,
+    -- function()
+    --   Snacks.picker.jumps()
+    -- end,
+    -- desc = "跳转列表",
   },
   {
     "<leader>sk",
@@ -248,52 +277,59 @@ local snacks_keys = {
   },
   {
     "<leader>sl",
-    function()
-      Snacks.picker.loclist()
-    end,
-    desc = "位置列表",
+    false,
+    -- function()
+    --   Snacks.picker.loclist()
+    -- end,
+    -- desc = "位置列表",
   },
   {
     "<leader>sm",
-    function()
-      Snacks.picker.marks()
-    end,
-    desc = "标记",
+    false,
+    -- function()
+    --   Snacks.picker.marks()
+    -- end,
+    -- desc = "标记",
   },
   {
     "<leader>sM",
-    function()
-      Snacks.picker.man()
-    end,
-    desc = "手册页",
+    false,
+    -- function()
+    --   Snacks.picker.man()
+    -- end,
+    -- desc = "手册页",
   },
   {
     "<leader>sp",
-    function()
-      Snacks.picker.lazy()
-    end,
-    desc = "搜索插件",
+    false,
+    -- function()
+    --   Snacks.picker.lazy()
+    -- end,
+    -- desc = "搜索插件",
   },
   {
     "<leader>sq",
-    function()
-      Snacks.picker.qflist()
-    end,
-    desc = "快速修复列表",
+    false,
+    -- function()
+    --   Snacks.picker.qflist()
+    -- end,
+    -- desc = "快速修复列表",
   },
   {
     "<leader>sR",
-    function()
-      Snacks.picker.resume()
-    end,
-    desc = "恢复上次搜索",
+    false,
+    -- function()
+    --   Snacks.picker.resume()
+    -- end,
+    -- desc = "恢复上次搜索",
   },
   {
     "<leader>su",
-    function()
-      Snacks.picker.undo()
-    end,
-    desc = "撤销历史",
+    false,
+    -- function()
+    --   Snacks.picker.undo()
+    -- end,
+    -- desc = "撤销历史",
   },
   {
     "<leader>uC",
@@ -304,94 +340,107 @@ local snacks_keys = {
   },
   {
     "gd",
-    function()
-      Snacks.picker.lsp_definitions()
-    end,
-    desc = "跳转到定义",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_definitions()
+    -- end,
+    -- desc = "跳转到定义",
   },
   {
     "gD",
-    function()
-      Snacks.picker.lsp_declarations()
-    end,
-    desc = "跳转到声明",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_declarations()
+    -- end,
+    -- desc = "跳转到声明",
   },
   {
     "grr",
-    function()
-      Snacks.picker.lsp_references()
-    end,
-    desc = "引用",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_references()
+    -- end,
+    -- desc = "引用",
   },
   {
     "gI",
-    function()
-      Snacks.picker.lsp_implementations()
-    end,
-    desc = "跳转到实现",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_implementations()
+    -- end,
+    -- desc = "跳转到实现",
   },
   {
     "gy",
-    function()
-      Snacks.picker.lsp_type_definitions()
-    end,
-    desc = "跳转到类型定义",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_type_definitions()
+    -- end,
+    -- desc = "跳转到类型定义",
   },
   {
     "gai",
-    function()
-      Snacks.picker.lsp_incoming_calls()
-    end,
-    desc = "传入调用",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_incoming_calls()
+    -- end,
+    -- desc = "传入调用",
   },
   {
     "gao",
-    function()
-      Snacks.picker.lsp_outgoing_calls()
-    end,
-    desc = "传出调用",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_outgoing_calls()
+    -- end,
+    -- desc = "传出调用",
   },
   {
     "<leader>ss",
-    function()
-      Snacks.picker.lsp_symbols()
-    end,
-    desc = "LSP符号",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_symbols()
+    -- end,
+    -- desc = "LSP符号",
   },
   {
     "<leader>sS",
-    function()
-      Snacks.picker.lsp_workspace_symbols()
-    end,
-    desc = "LSP工作区符号",
+    false,
+    -- function()
+    --   Snacks.picker.lsp_workspace_symbols()
+    -- end,
+    -- desc = "LSP工作区符号",
   },
   {
     "<leader>z",
-    function()
-      Snacks.zen()
-    end,
-    desc = "切换禅模式",
+    false,
+    -- function()
+    --   Snacks.zen()
+    -- end,
+    -- desc = "切换禅模式",
   },
   {
     "<leader>Z",
-    function()
-      Snacks.zen.zoom()
-    end,
-    desc = "切换缩放",
+    false,
+    -- function()
+    --   Snacks.zen.zoom()
+    -- end,
+    -- desc = "切换缩放",
   },
   {
     "<leader>.",
-    function()
-      Snacks.scratch()
-    end,
-    desc = "切换临时缓冲区",
+    false,
+    -- function()
+    --   Snacks.scratch()
+    -- end,
+    -- desc = "切换临时缓冲区",
   },
   {
     "<leader>S",
-    function()
-      Snacks.scratch.select()
-    end,
-    desc = "选择临时缓冲区",
+    false,
+    -- function()
+    --   Snacks.scratch.select()
+    -- end,
+    -- desc = "选择临时缓冲区",
   },
   {
     "<leader>bd",
@@ -409,20 +458,22 @@ local snacks_keys = {
   },
   {
     "<leader>dps",
-    function()
-      Snacks.profiler.scratch()
-    end,
-    desc = "性能分析临时缓冲",
+    false,
+    -- function()
+    --   Snacks.profiler.scratch()
+    -- end,
+    -- desc = "性能分析临时缓冲",
   },
   {
     "<leader>un",
-    function()
-      Snacks.notifier.hide()
-    end,
-    desc = "关闭所有通知",
+    false,
+    -- function()
+    --   Snacks.notifier.hide()
+    -- end,
+    -- desc = "关闭所有通知",
   },
   {
-    "<c-/>",
+    "<leader>/",
     function()
       Snacks.terminal()
     end,
@@ -430,10 +481,11 @@ local snacks_keys = {
   },
   {
     "<c-_>",
-    function()
-      Snacks.terminal()
-    end,
-    desc = "which_key_ignore",
+    false,
+    -- function()
+    --   Snacks.terminal()
+    -- end,
+    -- desc = "which_key_ignore",
   },
   {
     "]]",
@@ -453,21 +505,22 @@ local snacks_keys = {
   },
   {
     "<leader>N",
-    function()
-      Snacks.win({
-        file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-        width = 0.6,
-        height = 0.6,
-        wo = {
-          spell = false,
-          wrap = false,
-          signcolumn = "yes",
-          statuscolumn = " ",
-          conceallevel = 3,
-        },
-      })
-    end,
-    desc = "Neovim更新日志",
+    false,
+    -- function()
+    --   Snacks.win({
+    --     file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+    --     width = 0.6,
+    --     height = 0.6,
+    --     wo = {
+    --       spell = false,
+    --       wrap = false,
+    --       signcolumn = "yes",
+    --       statuscolumn = " ",
+    --       conceallevel = 3,
+    --     },
+    --   })
+    -- end,
+    -- desc = "Neovim更新日志",
   },
 }
 
