@@ -14,8 +14,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- 启动时自动打开文件树
+-- if vim.fn.argc() == 0 then
+--   vim.schedule(function()
+--     Snacks.explorer()
+--   end)
+-- end
+
 if vim.fn.argc() == 0 then
   vim.schedule(function()
-    Snacks.explorer()
+    Snacks.picker.smart({
+      -- 强制只显示当前工作目录下的文件
+      filter = { cwd = vim.fn.getcwd() },
+    })
+    -- Snacks.picker.smart({ root = false })
   end)
 end
