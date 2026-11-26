@@ -69,9 +69,20 @@ return {
     {
       "<leader><space>",
       function()
+        -- 全局查找文件
         Snacks.picker.smart({ cwd = LazyVim.root() })
       end,
       desc = "查找文件",
+    },
+    {
+      "<leader>f",
+      function()
+        Snacks.picker.smart({
+          -- 强制只显示当前工作目录下的文件
+          filter = { cwd = vim.fn.getcwd() },
+        })
+      end,
+      desc = "查找当前路径文件",
     },
     { "<leader>,", false, desc = "缓冲区列表" },
     { "<leader>/", false, desc = "切换终端（并一并禁用官方默认 Grep）" },
